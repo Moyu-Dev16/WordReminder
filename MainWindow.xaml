@@ -1,0 +1,40 @@
+﻿<Window x:Class="WordReminder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="背单词" Height="160" Width="300"
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Background="Transparent"
+        Topmost="True" 
+        ShowInTaskbar="False"
+        Loaded="Window_Loaded"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Border CornerRadius="10" Background="#CC000000" BorderBrush="White" BorderThickness="1">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0">
+                <TextBlock x:Name="TxtWord" Text="Loading..." FontSize="24" FontWeight="Bold" Foreground="#00BFFF" VerticalAlignment="Bottom"/>
+                <TextBlock x:Name="TxtPhonetic" Text="[]" FontSize="14" Foreground="#DDDDDD" Margin="10,0,0,5" VerticalAlignment="Bottom"/>
+            </StackPanel>
+
+            <Button Content="×" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0"
+                    Width="20" Height="20" Background="Transparent" Foreground="White" BorderThickness="0"
+                    Click="BtnClose_Click" Cursor="Hand"/>
+
+            <ScrollViewer Grid.Row="1" Margin="0,5" VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="TxtDefinition" Text="正在读取词库..." Foreground="White" TextWrapping="Wrap" FontSize="14"/>
+            </ScrollViewer>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="BtnPlayAudio" Content="🔊 播放读音" Click="BtnPlayAudio_Click" 
+                        Background="#33FFFFFF" Foreground="White" BorderThickness="0" Padding="10,2" Cursor="Hand"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
